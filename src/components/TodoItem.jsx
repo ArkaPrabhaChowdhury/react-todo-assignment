@@ -31,7 +31,6 @@ function TodoItem({ todo, removeTodo, editTodo, toggleTodo }) {
         </>
       ) : (
         <>
-
           <label className="checkbox-container">
             <input
               type="checkbox"
@@ -43,7 +42,7 @@ function TodoItem({ todo, removeTodo, editTodo, toggleTodo }) {
           <span style={{ color: todo.completed ? 'gray' : 'white' }}>
             {todo.text}
           </span>
-          
+
           <button
             onClick={() => setIsEditing(true)}
             className="icon-button edit-button"
@@ -56,7 +55,6 @@ function TodoItem({ todo, removeTodo, editTodo, toggleTodo }) {
           >
             <TrashIcon />
           </button>
-
         </>
       )}
     </li>

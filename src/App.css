@@ -102,7 +102,6 @@ li span {
   cursor: pointer;
   height: 0;
   width: 0;
-
 }
 
 .checkmark {
@@ -114,7 +113,7 @@ li span {
   background-color: #eee;
   border-radius: 3px;
   margin-right: 10px;
-  margin-top:4px;
+  margin-top: 4px;
 }
 
 .checkbox-container:hover input ~ .checkmark {

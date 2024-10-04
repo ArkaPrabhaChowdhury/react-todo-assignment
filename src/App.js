@@ -12,7 +12,10 @@ function App() {
   }, []);
 
   const addTodo = (todo) => {
-    const newTodos = [...todos, { id: Date.now(), text: todo, completed: false }];
+    const newTodos = [
+      ...todos,
+      { id: Date.now(), text: todo, completed: false },
+    ];
     setTodos(newTodos);
     localStorage.setItem('todos', JSON.stringify(newTodos));
   };
@@ -24,7 +27,9 @@ function App() {
   };
 
   const editTodo = (id, newText) => {
-    const newTodos = todos.map((todo) => (todo.id === id ? { ...todo, text: newText } : todo));
+    const newTodos = todos.map((todo) =>
+      todo.id === id ? { ...todo, text: newText } : todo
+    );
     setTodos(newTodos);
     localStorage.setItem('todos', JSON.stringify(newTodos));
   };
