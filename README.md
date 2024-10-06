@@ -30,3 +30,7 @@ A simple, sleek, and responsive Todo application built with React.
 - React
 - CSS3
 - Local Storage API
+
+## Video
+
+https://www.loom.com/share/c71508734dcf4f5394bae5856937cff4?sid=58de7482-97d6-42ed-b7df-bf425bb26a08
