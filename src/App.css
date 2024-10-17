@@ -1,3 +1,8 @@
+:root {
+  --base-bg-color: rgba(255, 255, 255, 0.1);
+  --base-text-color: #fff;
+}
+
 h1 {
   font-size: 3.5rem;
   margin-bottom: 50px;
@@ -21,14 +26,27 @@ input[type='text'] {
   padding-left: 15px;
   border: none;
   border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background-color: var(--base-bg-color);
+  color: var(--base-text-color);
   margin-right: 10px;
   width: 100%;
 }
 
+li input[type='text'] {
+  margin-right: 10px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--base-bg-color);
+  color: var(--base-text-color);
+}
+
+.edit-input {
+  height: 10px;
+}
+
 input::placeholder {
-  color: #fff;
+  color: var(--base-text-color);
 }
 
 input:focus {
@@ -41,7 +59,6 @@ button {
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
-  background-color: #fff;
   color: #000;
   cursor: pointer;
   transition:
@@ -68,7 +85,7 @@ ul {
 li {
   display: flex;
   align-items: flex-start;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--base-bg-color);
   margin: 35px 0;
   padding: 15px;
   border-radius: 5px;
@@ -121,7 +138,7 @@ li span {
 }
 
 .checkbox-container input:checked ~ .checkmark {
-  background-color: #fff;
+  background-color: var(--base-text-color);
 }
 
 .checkmark:after {
@@ -148,9 +165,12 @@ li span {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 5px;
-  margin-left: 20px;
+  padding: 8px;
+  margin-left: 10px;
   transition: transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .icon-button:hover {
@@ -158,12 +178,22 @@ li span {
 }
 
 .icon-button svg {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
+}
+
+.save-button, .cancel-button {
+  height: 40px;
+  width: 40px;
+}
+
+.save-button svg, .cancel-button svg {
+  width: 24px;
+  height: 24px;
 }
 
 .edit-button svg {
-  fill: #fff;
+  fill: var(--base-text-color);
 }
 
 .delete-button svg {
@@ -185,9 +215,79 @@ li span {
   margin-right: 15px;
 }
 
+.add-task {
+  background-color: var(--base-text-color);
+}
+
+.add-task:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .save-button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--base-text-color);
+  padding: 20px;
+  border-radius: 8px;
+  border:3px solid #000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: 300px;
+}
+
+.modal h3 {
+  color: #000;
+}
+
+.modal-content {
+  text-align: center;
+}
+
+.modal-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.confirm-button, .cancel-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.confirm-button {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+.save-button {
+  color: var(--base-text-color);
+}
+
+.cancel-button {
+  color: #ff4d4d;
+}
+
+.confirm-button:hover {
+  background-color: #e64545;
+}
+
+.todo-text {
+  color: var(--base-text-color);
+  transition: color 0.3s ease;
+}
+
+.todo-text.completed {
+  color: gray;
 }
 
 @media screen and (max-width: 600px) {
@@ -215,5 +315,10 @@ li span {
   .checkmark {
     height: 20px;
     width: 20px;
+  }
+
+  .checkbox-container .checkmark:after {
+    left: 6px;
+    top: 2px;
   }
 }

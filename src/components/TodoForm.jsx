@@ -1,14 +1,17 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { AddIcon } from '../svg';
 
 function TodoForm({ addTodo }) {
   const [input, setInput] = useState('');
+  const inputRef = useRef(null); 
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (input.trim()) {
-      addTodo(input);
+    const trimmedInput = input.trim();
+    if (trimmedInput) {
+      addTodo(trimmedInput);
       setInput('');
+      inputRef.current.focus();
     }
   };
 
@@ -19,8 +22,9 @@ function TodoForm({ addTodo }) {
         value={input}
         onChange={(e) => setInput(e.target.value)}
         placeholder="Add a new task"
+        ref={inputRef}
       />
-      <button type="submit" aria-label="Add task">
+      <button type="submit" aria-label="Add task" disabled={!input.trim()} className='add-task'>
         <AddIcon />
       </button>
     </form>
